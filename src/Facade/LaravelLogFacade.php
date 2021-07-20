@@ -5,7 +5,7 @@
  * Date: 7/20/21
  * Time: 10:22 AM
  */
-namespace Peter\LaravelLog\Facades;
+namespace Peter\LaravelLog\Facade;
 use Illuminate\Support\Facades\Facade;
 
 

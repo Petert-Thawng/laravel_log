@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\File;
 
 class LaravelLog
 {
-    public function log($date)
+    public function log($date = '')
     {
-        $date = new Carbon($date, today());
+        if($date){
+            $date = Carbon::parse($date);
+        }else{
+          $date  = Carbon::now();
+    }
+
 
         $daily = storage_path("logs/laravel-{$date->format( 'Y-m-d' )}.log");
         $stuck = storage_path("logs/laravel.log");
