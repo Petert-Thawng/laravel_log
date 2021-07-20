@@ -1,0 +1,18 @@
+{
+  "name": "petertzht/laravel-log",
+  "description": "Laravel Logs View",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Peter",
+      "email": "peter.tzht@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "Peter\\LaravelLogs\\": "src"
+    }
+  }
+
+}
