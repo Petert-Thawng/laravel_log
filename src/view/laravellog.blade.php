@@ -11,26 +11,28 @@
     <title>Laravel Log!</title>
 </head>
 <body>
+<div class="container">
+    <form action="{{ route('logs') }}">
+        <div class="form-group">
+            <label for="exampleInputEmail1">For Date</label>
+            <input type="date" name="date" class="form-control" value="{{ $date ? $date->format('Y-m-d') : today()->format('Y-m-d') }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Get Logs</button>
+    </form>
+    @if(empty($data['file']))
 
-<form action="{{ route('logs') }}">
-    <input type="date" name="date" value="{{ $date ? $date->format('Y-m-d') : today()->format('Y-m-d') }}">
-    <button type="submit">Get</button>
-
-</form>
-
+        <div>
+            <h3>No Logs Found</h3>
+        </div>
+    @else
+        <div>
+            <h5>File Size : <b>{{ round($data['size'] / 1024) }} KB</b></h5>
+            <pre>{{ $data['file'] }}</pre>
+        </div>
+    @endif
+</div>
 {{-- View Log file info and contents --}}
-@if(empty($data['file']))
 
-    <div>
-        <h3>No Logs Found</h3>
-    </div>
-@else
-    <div>
-        <h5>Updated On : <b>{{ $data['lastModified' ]->format('Y-m-d h:i a') }}</b></h5>
-        <h5>File Size : <b>{{ round($data['size'] / 1024) }} KB</b></h5>
-        <pre>{{ $data['file'] }}</pre>
-    </div>
-@endif
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
