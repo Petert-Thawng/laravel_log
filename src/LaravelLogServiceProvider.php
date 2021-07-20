@@ -17,8 +17,9 @@ class LaravelLogServiceProvider extends ServiceProvider
     {
 
         $this->publishes([
-            __DIR__.'/view/laravellog.blade.php' => base_path('resources/views/log/laravel-log'),
-        ]);
+            __DIR__.'/view/laravellog.blade.php' => resource_path('resources/views/log')
+        ],'views');
+        
     }
     public function register()
     {
